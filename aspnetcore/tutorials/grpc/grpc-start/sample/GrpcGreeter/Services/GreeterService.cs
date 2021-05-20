@@ -20,7 +20,7 @@ namespace GrpcGreeter
         {
             return Task.FromResult(new HelloReply
             {
-                Message = "Hello " + request.Name
+                Message = $"{DateTime.Now} Hello " + request.Name
             });
         }
     }
