@@ -26,9 +26,10 @@ namespace GrpcGreeterClient
             {
                 pingTasks[i] = Task.Factory.StartNew(() =>
                 {
+                    Console.WriteLine($"{DateTime.Now} - Start task {i}");
                     var client = new Greeter.GreeterClient(channel);
                     var reply = client.SayHello(new HelloRequest { Name = "GreeterClient" });
-                    Console.WriteLine($"{DateTime.Now} - Result {reply}");
+                    Console.WriteLine($"{DateTime.Now} - Result task {i}: {reply}");
                 });
             }
             Console.WriteLine("Waiting for tasks to complete");
